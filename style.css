@@ -1,18 +1,20 @@
 /* ==========================================================
-   Design tokens
-   Cobalt, sun yellow and deep ink on a cool white page.
+   Design tokens — a bright, varied palette
    ========================================================== */
 :root {
-    --cobalt: #2A44E8;
-    --ink: #0B1033;
-    --sun: #FFC93C;
-    --paper: #FBFBFF;
-    --tint: #EEF1FF;
-    --muted: #4B5275;
-    --line: #D5DBF5;
+    --pink: #FF4D8D;
+    --purple: #7C3AED;
+    --teal: #0EBFA8;
+    --yellow: #FFC53D;
+    --orange: #FF7A45;
+    --ink: #16112B;
+    --paper: #FFFDF9;
+    --band: #F5F1FF;
+    --muted: #5D5878;
+    --line: #E7E1FA;
 
-    --display: "Fraunces", Georgia, "Times New Roman", serif;
-    --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+    --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --body: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
 }
 
 /* ==========================================================
@@ -35,12 +37,13 @@ body {
     line-height: 1.6;
     color: var(--ink);
     background: var(--paper);
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
     margin: 0;
     font-family: var(--display);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.1;
 }
 
@@ -55,36 +58,41 @@ ul {
 }
 
 a {
-    color: var(--cobalt);
+    color: var(--purple);
     text-underline-offset: 0.2em;
 }
 
+mark {
+    background: linear-gradient(180deg, transparent 60%, var(--yellow) 60%);
+    color: inherit;
+}
+
 :focus-visible {
-    outline: 3px solid var(--cobalt);
+    outline: 3px solid var(--purple);
     outline-offset: 3px;
 }
 
 .hero :focus-visible,
-.contact :focus-visible,
-.panel-blue :focus-visible,
-.panel-ink :focus-visible {
-    outline-color: var(--sun);
+.contact :focus-visible {
+    outline-color: var(--yellow);
 }
 
 .wrap {
     width: min(72rem, 100% - 3rem);
     margin-inline: auto;
+    position: relative;
+    z-index: 1;
 }
 
 .skip-link {
     position: absolute;
     left: 1rem;
     top: -4rem;
-    z-index: 30;
+    z-index: 40;
     padding: 0.6rem 1rem;
-    background: var(--sun);
+    background: var(--yellow);
     color: var(--ink);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .skip-link:focus {
@@ -97,9 +105,9 @@ a {
 .topbar {
     position: sticky;
     top: 0;
-    z-index: 20;
-    background: rgba(251, 251, 255, 0.94);
-    backdrop-filter: blur(8px);
+    z-index: 30;
+    background: rgba(255, 253, 249, 0.9);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
 }
 
@@ -114,10 +122,14 @@ a {
 
 .brand {
     font-family: var(--display);
-    font-size: 1.15rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: var(--ink);
     text-decoration: none;
+}
+
+.brand span {
+    color: var(--pink);
 }
 
 .topbar nav ul {
@@ -127,100 +139,150 @@ a {
 }
 
 .topbar nav a {
+    position: relative;
     color: var(--ink);
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
-    border-bottom: 3px solid transparent;
-    padding-bottom: 0.15rem;
-    transition: border-color 0.15s;
+    padding-bottom: 0.2rem;
 }
 
-.topbar nav a:hover {
-    border-bottom-color: var(--sun);
+.topbar nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--pink), var(--purple));
+    transition: right 0.2s ease;
+}
+
+.topbar nav a:hover::after {
+    right: 0;
 }
 
 /* ==========================================================
-   Hero: the one loud moment
+   Hero
    ========================================================== */
 .hero {
     position: relative;
     overflow: hidden;
-    padding: clamp(4rem, 10vw, 8rem) 0 clamp(6rem, 11vw, 9rem);
-    background: var(--cobalt);
+    padding: clamp(4rem, 10vw, 7.5rem) 0 clamp(6rem, 12vw, 9rem);
+    background: linear-gradient(135deg, #FF4D8D 0%, #7C3AED 52%, #2E1F73 100%);
     color: #FFFFFF;
+    isolation: isolate;
 }
 
-/* Sun, cropped by the bottom-right corner */
-.hero::after {
-    content: "";
+.blob {
     position: absolute;
-    right: -4rem;
-    bottom: -7rem;
-    width: clamp(12rem, 30vw, 27rem);
-    aspect-ratio: 1;
     border-radius: 50%;
-    background: var(--sun);
+    filter: blur(2px);
+    z-index: 0;
 }
 
-.hero .wrap {
+.blob-a {
+    width: 22rem;
+    height: 22rem;
+    top: -8rem;
+    right: -6rem;
+    background: var(--yellow);
+    opacity: 0.85;
+    animation: float-a 9s ease-in-out infinite;
+}
+
+.blob-b {
+    width: 13rem;
+    height: 13rem;
+    bottom: -5rem;
+    left: -3rem;
+    background: var(--teal);
+    opacity: 0.6;
+    animation: float-b 11s ease-in-out infinite;
+}
+
+.blob-c {
+    width: 7rem;
+    height: 7rem;
+    bottom: 3rem;
+    right: 12%;
+    background: var(--orange);
+    opacity: 0.7;
+    animation: float-c 7s ease-in-out infinite;
+}
+
+@keyframes float-a {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-1.5rem, 1.5rem); }
+}
+
+@keyframes float-b {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(1.25rem, -1rem); }
+}
+
+@keyframes float-c {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-1.25rem); }
+}
+
+.hero-inner {
     position: relative;
     z-index: 1;
+}
+
+.greeting {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--yellow);
+    letter-spacing: 0.02em;
 }
 
 .hero h1 {
     letter-spacing: -0.03em;
 }
 
-.greeting {
-    display: block;
-    margin-bottom: 1rem;
-    font-family: var(--body);
-    font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 0;
-    color: rgba(255, 255, 255, 0.85);
-}
-
 .name {
     display: block;
-    font-size: clamp(3.2rem, 11vw, 9rem);
+    font-size: clamp(3.1rem, 10.5vw, 8.5rem);
     line-height: 0.95;
     overflow-wrap: anywhere;
-    animation: rise 0.8s ease-out both;
+    animation: rise 0.7s ease-out both;
 }
 
-.name + .name {
+.n2 {
     animation-delay: 0.12s;
+    background: linear-gradient(90deg, #FFFFFF, var(--yellow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 @keyframes rise {
-    from {
-        opacity: 0;
-        transform: translateY(1.5rem);
-    }
-    to {
-        opacity: 1;
-        transform: none;
-    }
+    from { opacity: 0; transform: translateY(1.5rem); }
+    to { opacity: 1; transform: none; }
 }
 
 .role {
     display: inline-block;
-    margin-top: 2.25rem;
-    padding: 0.4rem 1.1rem;
+    margin-top: 2rem;
+    padding: 0.45rem 1.2rem;
     border-radius: 999px;
-    background: var(--sun);
-    color: var(--ink);
-    font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     font-weight: 600;
+    font-size: clamp(1rem, 2vw, 1.3rem);
 }
 
 .note {
     max-width: 34ch;
     margin-top: 1.25rem;
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.92);
 }
 
 /* ==========================================================
@@ -231,30 +293,54 @@ a {
     scroll-margin-top: 4rem;
 }
 
-.tint {
-    background: var(--tint);
+.band {
+    background: var(--band);
 }
+
+.tag {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.tag-pink    { background: #FFE1EC; color: #C4126A; }
+.tag-yellow  { background: #FFF2CC; color: #9A6B00; }
+.tag-teal    { background: #D9F7F1; color: #0A7F6E; }
+.tag-purple  { background: #EDE4FF; color: #5B21B6; }
+.tag-orange  { background: #FFE3D6; color: #C24A0F; }
+.tag-white   { background: rgba(255, 255, 255, 0.2); color: #FFFFFF; }
 
 h2 {
     margin-bottom: 2.25rem;
-    font-size: clamp(2.1rem, 4.5vw, 3.25rem);
+    font-size: clamp(2rem, 4.2vw, 3rem);
     letter-spacing: -0.02em;
 }
 
 h3 {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
 }
 
 /* ---------- About ---------- */
 .statement {
-    max-width: 32em;
-    font-family: var(--display);
-    font-size: clamp(1.35rem, 2.6vw, 2rem);
-    font-weight: 400;
-    line-height: 1.45;
+    max-width: 34em;
+    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+    line-height: 1.5;
 }
 
 /* ---------- Experience ---------- */
+.job-card {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 1.75rem;
+    box-shadow: 0.6rem 0.6rem 0 var(--yellow);
+}
+
 .job-head {
     display: flex;
     flex-wrap: wrap;
@@ -262,107 +348,126 @@ h3 {
     justify-content: space-between;
     gap: 0.5rem 2rem;
     margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px dashed var(--line);
 }
 
 .job-head h3 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.4rem, 2.8vw, 1.8rem);
 }
 
 .org {
-    margin-top: 0.25rem;
+    margin-top: 0.3rem;
     font-weight: 700;
-    color: var(--cobalt);
+    color: var(--pink);
 }
 
 .dates {
     color: var(--muted);
-    font-weight: 500;
+    font-weight: 600;
 }
 
-.bento {
+.checklist {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 0.9rem;
 }
 
-.bento li {
-    padding: 1.5rem;
-    border: 1px solid var(--line);
-    border-radius: 1rem;
-    background: var(--paper);
+.checklist li {
+    position: relative;
+    padding-left: 2rem;
+    max-width: 62ch;
 }
 
-/* Lead tile: the headline responsibility */
-.bento li:first-child {
-    grid-column: span 2;
-    display: flex;
-    align-items: flex-end;
-    min-height: 12rem;
-    padding: 2rem;
-    border: 0;
-    border-radius: 1.5rem;
-    background: var(--cobalt);
+.checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: -0.05em;
+    width: 1.4rem;
+    height: 1.4rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--teal);
     color: #FFFFFF;
-    font-family: var(--display);
-    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-    line-height: 1.25;
-}
-
-.bento li:last-child {
-    grid-column: span 3;
+    font-size: 0.75rem;
+    font-weight: 700;
 }
 
 /* ---------- Skills ---------- */
-.panels {
+.cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
-.panel {
+.card {
     padding: 2rem;
     border-radius: 1.5rem;
+    color: #FFFFFF;
+    transition: transform 0.2s ease;
 }
 
-.panel h3 {
+.card:hover {
+    transform: translateY(-0.4rem) rotate(-0.5deg);
+}
+
+.card:nth-child(2):hover {
+    transform: translateY(-0.4rem) rotate(0.5deg);
+}
+
+.card-icon {
+    display: inline-block;
     margin-bottom: 1rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 
-.panel li {
-    padding: 0.7rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.28);
+.card h3 {
+    margin-bottom: 1rem;
 }
 
-.panel-blue {
-    background: var(--cobalt);
-    color: #FFFFFF;
+.card li {
+    padding: 0.55rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    line-height: 1.4;
 }
 
-.panel-ink {
-    background: var(--ink);
-    color: #FFFFFF;
-}
-
-.panel-sun {
-    background: var(--sun);
-    color: var(--ink);
-}
-
-.panel-sun li {
-    border-top-color: rgba(11, 16, 51, 0.25);
-}
+.card-pink   { background: linear-gradient(160deg, var(--pink), #C4126A); }
+.card-teal   { background: linear-gradient(160deg, var(--teal), #0A7F6E); }
+.card-yellow { background: linear-gradient(160deg, var(--yellow), #E08F00); color: var(--ink); }
+.card-yellow li { border-top-color: rgba(22, 17, 43, 0.2); }
 
 /* ---------- Certificates ---------- */
 .cert-cols {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
-.cert-cols h3 {
+.cert-col h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     margin-bottom: 1rem;
+    font-size: 1.4rem;
 }
+
+.cert-col h3 em {
+    font-style: normal;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--pink);
+}
+
+.dot {
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.dot-teal { background: var(--teal); }
+.dot-pink { background: var(--pink); }
 
 .cert-list li {
     padding: 0.9rem 0;
@@ -378,22 +483,9 @@ h3 {
 .cert-list span {
     display: block;
     margin-top: 0.15rem;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 400;
     color: var(--muted);
-}
-
-.badge {
-    display: inline-block;
-    margin-left: 0.5rem;
-    padding: 0.15rem 0.7rem;
-    border-radius: 999px;
-    background: var(--sun);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    vertical-align: middle;
 }
 
 .ai {
@@ -411,50 +503,82 @@ h3 {
 }
 
 .tags li {
-    padding: 0.4rem 1.1rem;
-    border: 2px solid var(--cobalt);
+    padding: 0.45rem 1.1rem;
     border-radius: 999px;
-    color: var(--cobalt);
-    font-weight: 600;
+    background: #FFFFFF;
+    border: 2px solid var(--purple);
+    color: var(--purple);
+    font-weight: 700;
+    font-size: 0.92rem;
+    transition: background 0.15s, color 0.15s;
+}
+
+.tags li:hover {
+    background: var(--purple);
+    color: #FFFFFF;
 }
 
 /* ---------- Education ---------- */
 .edu {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    gap: 1.5rem;
 }
 
-.edu article {
-    padding-top: 1.5rem;
-    border-top: 3px solid var(--ink);
+.edu-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    border-radius: 1.5rem;
+    background: var(--band);
 }
 
 .year {
-    margin-bottom: 1rem;
+    flex-shrink: 0;
     font-family: var(--display);
-    font-size: clamp(2.4rem, 5vw, 3.75rem);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    color: var(--cobalt);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: var(--orange);
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.75rem;
+    height: fit-content;
 }
 
-.edu h3 {
+.edu-item h3 {
     margin-bottom: 0.4rem;
+    font-size: 1.2rem;
 }
 
 .aside {
     margin-top: 0.4rem;
     color: var(--muted);
+    font-size: 0.95rem;
 }
 
 /* ---------- Contact ---------- */
 .contact {
+    position: relative;
+    overflow: hidden;
     padding: clamp(4rem, 9vw, 7rem) 0;
-    background: var(--cobalt);
+    background: linear-gradient(135deg, #2E1F73 0%, #7C3AED 60%, #FF4D8D 100%);
     color: #FFFFFF;
     scroll-margin-top: 4rem;
+    isolation: isolate;
+}
+
+.blob-d {
+    width: 18rem;
+    height: 18rem;
+    top: -6rem;
+    left: 60%;
+    background: var(--teal);
+    opacity: 0.35;
+}
+
+.contact-inner {
+    position: relative;
+    z-index: 1;
 }
 
 .contact a {
@@ -463,13 +587,14 @@ h3 {
 
 .contact-email {
     display: inline-block;
+    margin-top: 0.5rem;
     font-family: var(--display);
-    font-size: clamp(1.6rem, 6vw, 4rem);
-    font-weight: 600;
+    font-size: clamp(1.5rem, 5.5vw, 3.5rem);
+    font-weight: 700;
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.15;
     overflow-wrap: anywhere;
-    text-decoration-color: var(--sun);
+    text-decoration-color: var(--yellow);
     text-decoration-thickness: 3px;
 }
 
@@ -491,7 +616,7 @@ h3 {
 .contact-details dd {
     margin: 0;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
     overflow-wrap: anywhere;
 }
 
@@ -499,44 +624,30 @@ h3 {
    Tablet
    ========================================================== */
 @media (max-width: 900px) {
-    .bento {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .bento li:last-child {
-        grid-column: span 2;
-    }
-
-    .panels {
+    .cards {
         grid-template-columns: 1fr;
     }
 
     .cert-cols,
     .edu {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
     }
+
+    .blob-a { width: 16rem; height: 16rem; }
+    .blob-d { display: none; }
 }
 
 /* ==========================================================
    Mobile
    ========================================================== */
 @media (max-width: 600px) {
-    .bento {
-        grid-template-columns: 1fr;
+    .edu-item {
+        flex-direction: column;
+        gap: 0.75rem;
     }
 
-    .bento li:first-child,
-    .bento li:last-child {
-        grid-column: auto;
-    }
-
-    .bento li:first-child {
-        min-height: 9rem;
-    }
-
-    .panel {
-        padding: 1.5rem;
+    .year {
+        align-self: flex-start;
     }
 }
 
@@ -548,11 +659,12 @@ h3 {
         scroll-behavior: auto;
     }
 
-    .name {
+    .name,
+    .blob {
         animation: none;
     }
 
-    .topbar nav a {
-        transition: none;
+    .card:hover {
+        transform: none;
     }
 }
