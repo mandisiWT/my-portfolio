@@ -2,84 +2,222 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio of Mandisi Sikhakhane, ICT and Admin Assistant at WILDTRUST in Pietermaritzburg, South Africa.">
+    <title>Mandisi Sikhakhane | ICT and Admin Assistant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <h1>Hello, my name is Mandisi Sikhakhane</h1>
-    <p>I'm learning web development and building my first portfolio.</p>
-        <h2>About Me</h2>
-    <p>
-        I'm an ICT and Admin Assistant at WILDTRUST, where I handle everything from 
-        IT support and system troubleshooting to procurement and data management. 
-        I enjoy solving problems, learning new technologies, and keeping things 
-        organized and running smoothly. I'm currently expanding my skills into 
-        web development and networking.
-    </p>
-        <h2>Experience</h2>
+    <header class="topbar">
+        <div class="wrap topbar-inner">
+            <a class="brand" href="#top">Mandisi<span>.</span></a>
+            <nav aria-label="Sections">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <h3>ICT and Admin Assistant — WILDTRUST</h3>
-    <p>July 2023 – Present</p>
-    <ul>
-        <li>Provide first-level IT support and troubleshooting to 70+ staff, remotely and onsite</li>
-        <li>Manage user accounts, licensing, and security via Active Directory, Microsoft Entra, and Exchange Admin Center</li>
-        <li>Install, configure, and maintain Windows 10/11 systems and network printers</li>
-        <li>Source supplier quotations and coordinate procurement of devices and equipment</li>
-        <li>Build Power Automate workflows and maintain a SharePoint-based IT inventory system</li>
-        <li>Prepare monthly bulk communications using Everlytic</li>
-    </ul>
-        <h2>Skills</h2>
-    <ul>
-        <li>Microsoft Office Suite (Word, Excel, PowerPoint, SharePoint)</li>
-        <li>Active Directory, Microsoft Entra, Exchange Admin Center</li>
-        <li>Windows 10/11 installation, configuration, and troubleshooting</li>
-        <li>Network and printer setup and troubleshooting</li>
-        <li>Power Automate workflow development</li>
-        <li>Basic computer hardware and software knowledge</li>
-        <li>Strong analytical and problem-solving skills</li>
-        <li>Excellent written and verbal communication</li>
-    </ul>
-        <h2>Certificates & Courses</h2>
+    <main id="main">
 
-    <h3>Certificates</h3>
-    <ul>
-        <li>CompTIA Tech+ — IT Academy</li>
-        <li>Workplace Email Etiquette — Regent Business School</li>
-        <li>Communicating With Confidence — KZN Business Training Centre</li>
-    </ul>
+        <!-- Hero -->
+        <section class="hero" id="top">
+            <div class="blob blob-a" aria-hidden="true"></div>
+            <div class="blob blob-b" aria-hidden="true"></div>
+            <div class="blob blob-c" aria-hidden="true"></div>
+            <div class="wrap hero-inner">
+                <p class="greeting">✦ Hello, my name is</p>
+                <h1>
+                    <span class="name n1">Mandisi</span>
+                    <span class="name n2">Sikhakhane</span>
+                </h1>
+                <p class="role">ICT &amp; Admin Assistant at WILDTRUST</p>
+                <p class="note">I'm learning web development and building my first portfolio.</p>
+            </div>
+        </section>
 
-    <h3>Courses (in progress)</h3>
-    <ul>
-        <li>Networking Basics — Cisco Networking Academy</li>
-        <li>Introduction to Cybersecurity — Cisco Networking Academy</li>
-        <li>Introduction to Data Science — Cisco Networking Academy</li>
-        <li>Ethical Hacking — Cisco Networking Academy</li>
-        <li>Introduction to IoT and Digital Transformation — Cisco Networking Academy</li>
-    </ul>
+        <!-- About -->
+        <section class="block" id="about">
+            <div class="wrap">
+                <p class="tag tag-pink">01 · About</p>
+                <h2>About me</h2>
+                <p class="statement">
+                    I'm an ICT and Admin Assistant at <mark>WILDTRUST</mark>, where I handle everything from
+                    IT support and system troubleshooting to procurement and data management.
+                    I enjoy solving problems, learning new technologies, and keeping things
+                    organized and running smoothly. I'm currently expanding my skills into
+                    web development and networking.
+                </p>
+            </div>
+        </section>
 
-    <h3>AI & Productivity (2025)</h3>
-    <ul>
-        <li>AI Fundamentals</li>
-        <li>AI and Accessibility</li>
-        <li>Generative AI</li>
-        <li>Microsoft Copilot</li>
-        <li>Responsible AI</li>
-        <li>Search Technology</li>
-    </ul> 
-        <h2>Education</h2>
+        <!-- Experience -->
+        <section class="block band" id="experience">
+            <div class="wrap">
+                <p class="tag tag-yellow">02 · Experience</p>
+                <h2>Where I've worked</h2>
 
-    <h3>Bachelor of Science in Information Technology (Incomplete)</h3>
-    <p>Oval International, Pietermaritzburg — 2015 – 2016</p>
-    <p>Studies discontinued due to financial constraints.</p>
+                <div class="job-card">
+                    <div class="job-head">
+                        <div>
+                            <h3>ICT and Admin Assistant</h3>
+                            <p class="org">WILDTRUST</p>
+                        </div>
+                        <p class="dates">July 2023 – Present</p>
+                    </div>
+                    <ul class="checklist">
+                        <li>Provide first-level IT support and troubleshooting to 70+ staff, remotely and onsite</li>
+                        <li>Manage user accounts, licensing, and security via Active Directory, Microsoft Entra, and Exchange Admin Center</li>
+                        <li>Install, configure, and maintain Windows 10/11 systems and network printers</li>
+                        <li>Source supplier quotations and coordinate procurement of devices and equipment</li>
+                        <li>Build Power Automate workflows and maintain a SharePoint-based IT inventory system</li>
+                        <li>Prepare monthly bulk communications using Everlytic</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <h3>National Senior Certificate (Matric)</h3>
-    <p>Raisethorpe Secondary School, Pietermaritzburg — 2010 – 2014</p>
-        <h2>Contact</h2>
-    <ul>
-        <li>Email: Sikhakhane00@gmail.com</li>
-        <li>Phone: 075 228 1093</li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/mandisi-sikhakhanea902b8336">linkedin.com/in/mandisi-sikhakhane</a></li>
-        <li>Location: Pietermaritzburg, South Africa</li>
-    </ul>
+        <!-- Skills -->
+        <section class="block" id="skills">
+            <div class="wrap">
+                <p class="tag tag-teal">03 · Skills</p>
+                <h2>What I bring</h2>
+
+                <div class="cards">
+                    <div class="card card-pink">
+                        <span class="card-icon">🧰</span>
+                        <h3>Microsoft tools</h3>
+                        <ul>
+                            <li>Microsoft Office Suite (Word, Excel, PowerPoint, SharePoint)</li>
+                            <li>Active Directory, Microsoft Entra, Exchange Admin Center</li>
+                            <li>Power Automate workflow development</li>
+                        </ul>
+                    </div>
+                    <div class="card card-teal">
+                        <span class="card-icon">🖥️</span>
+                        <h3>Systems &amp; networks</h3>
+                        <ul>
+                            <li>Windows 10/11 installation, configuration, and troubleshooting</li>
+                            <li>Network and printer setup and troubleshooting</li>
+                            <li>Basic computer hardware and software knowledge</li>
+                        </ul>
+                    </div>
+                    <div class="card card-yellow">
+                        <span class="card-icon">💬</span>
+                        <h3>Working style</h3>
+                        <ul>
+                            <li>Strong analytical and problem-solving skills</li>
+                            <li>Excellent written and verbal communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates & courses -->
+        <section class="block band" id="certificates">
+            <div class="wrap">
+                <p class="tag tag-purple">04 · Certificates &amp; courses</p>
+                <h2>Always learning</h2>
+
+                <div class="cert-cols">
+                    <div class="cert-col">
+                        <h3><span class="dot dot-teal"></span>Certificates</h3>
+                        <ul class="cert-list">
+                            <li>CompTIA Tech+ <span>IT Academy</span></li>
+                            <li>Workplace Email Etiquette <span>Regent Business School</span></li>
+                            <li>Communicating With Confidence <span>KZN Business Training Centre</span></li>
+                        </ul>
+                    </div>
+                    <div class="cert-col">
+                        <h3><span class="dot dot-pink"></span>Courses <em>in progress</em></h3>
+                        <ul class="cert-list">
+                            <li>Networking Basics <span>Cisco Networking Academy</span></li>
+                            <li>Introduction to Cybersecurity <span>Cisco Networking Academy</span></li>
+                            <li>Introduction to Data Science <span>Cisco Networking Academy</span></li>
+                            <li>Ethical Hacking <span>Cisco Networking Academy</span></li>
+                            <li>Introduction to IoT and Digital Transformation <span>Cisco Networking Academy</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ai">
+                    <h3>AI &amp; Productivity (2025)</h3>
+                    <ul class="tags">
+                        <li>AI Fundamentals</li>
+                        <li>AI and Accessibility</li>
+                        <li>Generative AI</li>
+                        <li>Microsoft Copilot</li>
+                        <li>Responsible AI</li>
+                        <li>Search Technology</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="block" id="education">
+            <div class="wrap">
+                <p class="tag tag-orange">05 · Education</p>
+                <h2>Education</h2>
+
+                <div class="edu">
+                    <article class="edu-item">
+                        <p class="year">2015–16</p>
+                        <div>
+                            <h3>Bachelor of Science in Information Technology (Incomplete)</h3>
+                            <p>Oval International, Pietermaritzburg</p>
+                            <p class="aside">Studies discontinued due to financial constraints.</p>
+                        </div>
+                    </article>
+                    <article class="edu-item">
+                        <p class="year">2010–14</p>
+                        <div>
+                            <h3>National Senior Certificate (Matric)</h3>
+                            <p>Raisethorpe Secondary School, Pietermaritzburg</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <div class="blob blob-d" aria-hidden="true"></div>
+            <div class="wrap contact-inner">
+                <p class="tag tag-white">06 · Contact</p>
+                <h2>Let's talk</h2>
+                <a class="contact-email" href="mailto:Sikhakhane00@gmail.com">Sikhakhane00@gmail.com</a>
+
+                <dl class="contact-details">
+                    <div>
+                        <dt>Phone</dt>
+                        <dd><a href="tel:+27752281093">075 228 1093</a></dd>
+                    </div>
+                    <div>
+                        <dt>LinkedIn</dt>
+                        <dd><a href="https://linkedin.com/in/mandisi-sikhakhanea902b8336">linkedin.com/in/mandisi-sikhakhane</a></dd>
+                    </div>
+                    <div>
+                        <dt>Location</dt>
+                        <dd>Pietermaritzburg, South Africa</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+    </main>
 </body>
 </html>
